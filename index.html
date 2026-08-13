@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sreehari Kalesh — Software Engineer</title>
+<meta name="description" content="Sreehari Kalesh — Full-stack software engineer building with React, Vue, Node & TypeScript. 3+ years shipping production apps at AOT Technologies.">
+<meta property="og:title" content="Sreehari Kalesh — Software Engineer">
+<meta property="og:description" content="Full-stack engineer. React · Vue · Node · TypeScript. Shipped Reddit Ads Manager for Hootsuite in 3 weeks.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d12;
+  --paper:#f4f1ea;
+  --lime:#d8ff3e;
+  --violet:#7c5cff;
+  --coral:#ff5c47;
+  --mono:'Space Mono',ui-monospace,monospace;
+  --sans:'Space Grotesk',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--sans);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+::selection{background:var(--lime);color:var(--ink)}
+a{color:inherit}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;inset:0 0 auto 0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem clamp(1.2rem,4vw,3rem);
+  mix-blend-mode:difference;
+}
+nav .logo{font-family:var(--mono);font-weight:700;font-size:1.05rem;text-decoration:none;letter-spacing:.05em}
+nav ul{display:flex;gap:clamp(.9rem,2.5vw,2rem);list-style:none}
+nav ul a{
+  font-family:var(--mono);font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;
+  text-decoration:none;opacity:.75;transition:opacity .2s;
+}
+nav ul a:hover{opacity:1}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(1.2rem,4vw,3rem);
+  padding-bottom:clamp(2rem,6vh,4rem);
+  position:relative;
+}
+.hero .glow{
+  position:absolute;width:60vmax;height:60vmax;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,92,255,.32),transparent 65%);
+  top:-25vmax;right:-20vmax;pointer-events:none;
+}
+.hero .glow2{
+  position:absolute;width:44vmax;height:44vmax;border-radius:50%;
+  background:radial-gradient(circle,rgba(216,255,62,.13),transparent 65%);
+  bottom:-16vmax;left:-14vmax;pointer-events:none;
+}
+.hero .kicker{
+  font-family:var(--mono);font-size:clamp(.75rem,1.4vw,.95rem);
+  color:var(--lime);letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.hero h1{
+  font-size:clamp(3.2rem,13.5vw,11.5rem);
+  line-height:.92;font-weight:700;letter-spacing:-.03em;
+  text-transform:uppercase;
+}
+.hero h1 .accent{
+  display:block;color:transparent;
+  -webkit-text-stroke:2px var(--paper);
+}
+.hero .sub{
+  display:flex;flex-wrap:wrap;gap:1rem 2.5rem;align-items:baseline;
+  margin-top:clamp(1.4rem,3.5vh,2.6rem);
+  max-width:60rem;
+}
+.hero .sub p{font-size:clamp(1rem,1.9vw,1.35rem);max-width:34rem;color:#c9c5bb}
+.hero .sub p strong{color:var(--paper)}
+.hero .loc{font-family:var(--mono);font-size:.85rem;color:#8a877e;letter-spacing:.06em}
+.scroll-hint{
+  position:absolute;right:clamp(1.2rem,4vw,3rem);bottom:clamp(2rem,6vh,4rem);
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
+  writing-mode:vertical-rl;color:#8a877e;
+}
+
+/* ---------- marquee ---------- */
+.marquee{
+  background:var(--lime);color:var(--ink);
+  overflow:hidden;white-space:nowrap;
+  padding:.9rem 0;border-block:3px solid var(--ink);
+  transform:rotate(-1.2deg) scale(1.02);
+}
+.marquee .track{display:inline-block;animation:scroll 28s linear infinite}
+.marquee span{
+  font-family:var(--mono);font-weight:700;font-size:clamp(.95rem,2vw,1.3rem);
+  text-transform:uppercase;letter-spacing:.08em;padding:0 1.4rem;
+}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:clamp(4rem,11vh,8rem) clamp(1.2rem,4vw,3rem);max-width:78rem;margin:0 auto}
+.sec-head{display:flex;align-items:baseline;gap:1.2rem;margin-bottom:clamp(2.2rem,5vh,3.8rem)}
+.sec-head .num{font-family:var(--mono);color:var(--violet);font-size:1rem}
+.sec-head h2{
+  font-size:clamp(2rem,5.5vw,4rem);font-weight:700;letter-spacing:-.02em;text-transform:uppercase;
+}
+
+/* ---------- experience ---------- */
+.job{
+  display:grid;grid-template-columns:minmax(8rem,14rem) 1fr;gap:1rem 2.5rem;
+  padding:2.2rem 0;border-top:1px solid #2b2b33;
+}
+.job:last-child{border-bottom:1px solid #2b2b33}
+.job .when{font-family:var(--mono);font-size:.82rem;color:#8a877e;letter-spacing:.05em;padding-top:.4rem}
+.job h3{font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:700}
+.job .org{color:var(--lime);font-weight:500;margin-bottom:.7rem}
+.job ul{list-style:none;color:#c9c5bb}
+.job li{padding-left:1.3rem;position:relative;margin-bottom:.45rem}
+.job li::before{content:"→";position:absolute;left:0;color:var(--violet)}
+@media(max-width:640px){.job{grid-template-columns:1fr;gap:.4rem}}
+
+/* ---------- projects ---------- */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(21rem,100%),1fr));gap:1.2rem}
+.card{
+  border:1px solid #2b2b33;border-radius:14px;padding:1.8rem;
+  background:linear-gradient(160deg,#15151c,#0d0d12);
+  transition:transform .25s ease,border-color .25s ease;
+  display:flex;flex-direction:column;gap:.8rem;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-6px);border-color:var(--violet)}
+.card .idx{
+  font-family:var(--mono);font-size:3.2rem;font-weight:700;line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px #3a3a45;
+}
+.card:hover .idx{-webkit-text-stroke-color:var(--lime)}
+.card h3{font-size:1.35rem;font-weight:700}
+.card p{color:#c9c5bb;font-size:.95rem;flex:1}
+.card .tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.card .tags span{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid #3a3a45;border-radius:999px;padding:.28rem .7rem;color:#a6a29a;
+}
+.card.feature{grid-column:1/-1;background:linear-gradient(120deg,#1b1430,#0d0d12 70%)}
+.card.feature .badge{
+  position:absolute;top:1.4rem;right:1.4rem;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--coral);color:var(--ink);font-weight:700;border-radius:999px;padding:.35rem .8rem;
+}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1.2rem;margin-top:3.2rem}
+.stat{border-top:3px solid var(--lime);padding-top:.9rem}
+.stat b{display:block;font-size:clamp(2rem,4.5vw,3rem);font-weight:700;letter-spacing:-.02em}
+.stat small{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#8a877e}
+
+/* ---------- education ---------- */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.edu-grid h3{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--violet);margin-bottom:1.4rem;
+}
+.edu-item{padding:1rem 0;border-top:1px solid #2b2b33}
+.edu-item b{display:block;font-size:1.05rem}
+.edu-item span{color:#8a877e;font-size:.88rem;font-family:var(--mono)}
+@media(max-width:640px){.edu-grid{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{text-align:center;padding-bottom:clamp(5rem,12vh,9rem)}
+.contact h2{
+  font-size:clamp(2.6rem,9vw,7rem);font-weight:700;text-transform:uppercase;
+  letter-spacing:-.03em;line-height:1;margin-bottom:2.2rem;
+}
+.contact h2 em{font-style:normal;color:var(--lime)}
+.cta{
+  display:inline-block;font-family:var(--mono);font-weight:700;font-size:1.05rem;
+  background:var(--lime);color:var(--ink);text-decoration:none;
+  padding:1.1rem 2.6rem;border-radius:999px;
+  transition:transform .2s ease,background .2s ease;
+}
+.cta:hover{transform:scale(1.05) rotate(-1deg);background:var(--paper)}
+.contact .links{display:flex;justify-content:center;flex-wrap:wrap;gap:1.6rem;margin-top:2.6rem}
+.contact .links a{
+  font-family:var(--mono);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;
+  color:#8a877e;text-decoration:none;transition:color .2s;
+}
+.contact .links a:hover{color:var(--lime)}
+footer{
+  text-align:center;font-family:var(--mono);font-size:.72rem;color:#55534c;
+  padding:1.6rem;border-top:1px solid #1d1d24;letter-spacing:.08em;
+}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .marquee .track{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#top">SK⚡</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div><div class="glow2"></div>
+  <p class="kicker">Software Engineer II · AOT Technologies</p>
+  <h1>Sreehari<span class="accent">Kalesh</span></h1>
+  <div class="sub">
+    <p><strong>Full-stack engineer</strong> with 3+ years shipping production web apps in React, Vue, Node &amp; TypeScript — including a full advertising platform built from scratch in 3 weeks.</p>
+    <p class="loc">📍 Ernakulam, Kerala, India</p>
+  </div>
+  <span class="scroll-hint">scroll ↓</span>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>React</span><span>·</span><span>Vue.js</span><span>·</span><span>TypeScript</span><span>·</span><span>Node.js</span><span>·</span><span>Express</span><span>·</span><span>Firebase</span><span>·</span><span>AWS</span><span>·</span><span>REST APIs</span><span>·</span><span>NestJS</span><span>·</span><span>JavaScript</span><span>·</span>
+    <span>React</span><span>·</span><span>Vue.js</span><span>·</span><span>TypeScript</span><span>·</span><span>Node.js</span><span>·</span><span>Express</span><span>·</span><span>Firebase</span><span>·</span><span>AWS</span><span>·</span><span>REST APIs</span><span>·</span><span>NestJS</span><span>·</span><span>JavaScript</span><span>·</span>
+  </div>
+</div>
+
+<section id="work">
+  <div class="sec-head reveal"><span class="num">01</span><h2>Experience</h2></div>
+
+  <article class="job reveal">
+    <div class="when">Jan 2025 — Present</div>
+    <div>
+      <h3>Software Engineer II</h3>
+      <p class="org">AOT Technologies · Trivandrum</p>
+      <ul>
+        <li>Led end-to-end client engagement for Hootsuite — requirements, technical demos, and delivery timelines.</li>
+        <li>Delivered the Reddit Ads Manager platform from concept to production in 3 weeks, hitting 95% client satisfaction.</li>
+        <li>Managed multiple client relationships simultaneously with on-time delivery.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job reveal">
+    <div class="when">Jan 2024 — Jan 2025</div>
+    <div>
+      <h3>Software Engineer I</h3>
+      <p class="org">AOT Technologies · Trivandrum</p>
+      <ul>
+        <li>Spearheaded web app development &amp; optimization — 30% performance improvement.</li>
+        <li>Mentored junior developers in JavaScript and React, accelerating delivery by 15%.</li>
+        <li>Built robust error handling, cutting application downtime by 20%.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="job reveal">
+    <div class="when">Sep 2022 — Jan 2024</div>
+    <div>
+      <h3>Junior Software Engineer</h3>
+      <p class="org">AOT Technologies · Trivandrum</p>
+      <ul>
+        <li>Full-stack development across Vue.js, React.js, and Node.js applications.</li>
+        <li>Comprehensive code reviews reducing bugs by 30%.</li>
+        <li>Recognized for teamwork and problem-solving during feature integrations.</li>
+      </ul>
+    </div>
+  </article>
+
+  <div class="stats reveal">
+    <div class="stat"><b>3+</b><small>Years shipping</small></div>
+    <div class="stat"><b>3<span style="font-size:.5em"> wks</span></b><small>Idea → production</small></div>
+    <div class="stat"><b>95%</b><small>Client satisfaction</small></div>
+    <div class="stat"><b>30%</b><small>Perf gains delivered</small></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-head reveal"><span class="num">02</span><h2>Selected Work</h2></div>
+  <div class="projects-grid">
+
+    <article class="card feature reveal">
+      <span class="badge">Flagship</span>
+      <span class="idx">01</span>
+      <h3>Reddit Ads Manager</h3>
+      <p>A full advertising campaign platform for Hootsuite — create, manage, and monitor Reddit ad campaigns with a comprehensive analytics dashboard (impressions, clicks, conversions, CTR). Built from scratch to production-ready in 3 weeks by a 2-person team, with architecture supporting multiple concurrent campaigns.</p>
+      <div class="tags"><span>React</span><span>Analytics</span><span>3-week ship</span></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="idx">02</span>
+      <h3>Divii</h3>
+      <p>Automated divorce-agreement generation for lawyers — clients generate agreements independently, cutting onboarding time by 40%.</p>
+      <div class="tags"><span>Vue.js</span><span>Firebase</span></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="idx">03</span>
+      <h3>Hootsuite Integrations</h3>
+      <p>Integrated Yext and Google My Business into Hootsuite, improving data synchronization, UX, and error handling — user satisfaction up 20%.</p>
+      <div class="tags"><span>React</span><span>Node.js</span><span>TypeScript</span><span>AWS</span></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="idx">04</span>
+      <h3>BCNDP Election Tracker</h3>
+      <p>Finance tracking and report generation for the BC NDP — streamlining election finance workflows.</p>
+      <div class="tags"><span>Vue.js</span><span>NestJS</span></div>
+    </article>
+
+    <article class="card reveal">
+      <span class="idx">05</span>
+      <h3>OneLaunch</h3>
+      <p>Led the rebase to the latest Chromium — security and performance up 30% — backed by rigorous testing protocols.</p>
+      <div class="tags"><span>Chromium</span><span>C++ tooling</span></div>
+    </article>
+
+  </div>
+</section>
+
+<section id="education">
+  <div class="sec-head reveal"><span class="num">03</span><h2>Education &amp; Certs</h2></div>
+  <div class="edu-grid reveal">
+    <div>
+      <h3>Education</h3>
+      <div class="edu-item"><b>BCA — Manipal University</b><span>Online Program · 2025 — 2028 (expected)</span></div>
+      <div class="edu-item"><b>Diploma, Computer Engineering</b><span>Sreerama Govt Polytechnic · 2022</span></div>
+    </div>
+    <div>
+      <h3>IBM Certifications · 2023</h3>
+      <div class="edu-item"><b>Back-End Apps with Node.js &amp; Express</b><span>IBM</span></div>
+      <div class="edu-item"><b>Web Development — HTML, CSS, JavaScript</b><span>IBM</span></div>
+      <div class="edu-item"><b>Python for Data Science, AI &amp; Development</b><span>IBM</span></div>
+      <div class="edu-item"><b>Introduction to Cloud Computing</b><span>IBM</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="reveal">Let's build<br><em>something big</em></h2>
+  <div class="reveal">
+    <a class="cta" href="mailto:sreeharikalesh@gmail.com">Get in touch →</a>
+    <div class="links">
+      <a href="mailto:sreeharikalesh@gmail.com">Email</a>
+      <a href="https://github.com/sreehariKalesh-aot" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sreehari-kalesh-523b351b0/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="tel:+918921955113">+91 89219 55113</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Sreehari Kalesh · Designed &amp; built with one HTML file ⚡</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sreehari Kalesh — Software Engineer</title>
+<meta name="description" content="Sreehari Kalesh — Full-stack software engineer. React, Vue, Node & TypeScript. Portfolio, second edition.">
+<meta property="og:title" content="Sreehari Kalesh — Software Engineer">
+<meta property="og:description" content="Full-stack engineer. React · Vue · Node · TypeScript. Second edition.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✒️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#faf7f0;
+  --ink:#1a1814;
+  --faint:#6b665c;
+  --rule:#d9d3c5;
+  --blue:#002fa7;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:1rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--blue);color:var(--paper)}
+.wrap{max-width:72rem;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+
+/* small-caps label */
+.label{
+  font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--faint);
+}
+.label .no{color:var(--blue)}
+
+/* links: underline draw */
+a{color:inherit;text-decoration:none}
+.u{
+  background:linear-gradient(currentColor,currentColor) no-repeat 0 100%/0% 1px;
+  transition:background-size .35s ease;padding-bottom:2px;
+}
+.u:hover{background-size:100% 1px}
+.u.static{background-size:100% 1px}
+.u.static:hover{color:var(--blue)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:1px solid var(--ink);
+  position:sticky;top:0;background:var(--paper);z-index:50;
+}
+.masthead .wrap{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding-top:1rem;padding-bottom:1rem;gap:1rem;
+}
+.masthead .brand{font-family:var(--serif);font-weight:600;font-size:1.15rem;letter-spacing:.01em}
+.masthead ul{display:flex;gap:clamp(1rem,3vw,2.2rem);list-style:none}
+.masthead ul a{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.masthead .alt{color:var(--faint)}
+@media(max-width:560px){.masthead .alt-li{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(4rem,12vh,8rem) 0 clamp(3rem,8vh,5rem);border-bottom:1px solid var(--rule)}
+.hero .dateline{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+  margin-bottom:clamp(2.2rem,6vh,4rem);
+}
+.hero h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(3rem,10.5vw,8.5rem);line-height:1.02;letter-spacing:-.015em;
+  max-width:60rem;
+}
+.hero h1 em{font-style:italic;font-weight:300;color:var(--blue)}
+.hero .stand{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem 4rem;
+  margin-top:clamp(2.5rem,6vh,4rem);align-items:start;
+}
+.hero .stand .lede{
+  font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.5;font-weight:300;
+}
+.hero .stand .lede::first-letter{
+  font-size:3.4em;float:left;line-height:.82;padding:.04em .12em 0 0;font-weight:600;color:var(--blue);
+}
+.hero .meta{font-size:.9rem;color:var(--faint);display:grid;gap:.7rem;padding-top:.4rem}
+.hero .meta b{color:var(--ink);font-weight:600}
+.hero .meta .row{display:grid;grid-template-columns:7.5rem 1fr;border-top:1px solid var(--rule);padding-top:.55rem}
+@media(max-width:760px){.hero .stand{grid-template-columns:1fr}}
+
+/* ---------- sections ---------- */
+section{padding:clamp(3.5rem,9vh,6.5rem) 0;border-bottom:1px solid var(--rule)}
+.sec-grid{display:grid;grid-template-columns:minmax(9rem,16rem) 1fr;gap:2rem 4rem}
+.sec-grid>.label{position:sticky;top:5.2rem;align-self:start}
+@media(max-width:760px){.sec-grid{grid-template-columns:1fr;gap:1.6rem}.sec-grid>.label{position:static}}
+
+/* experience ledger */
+.entry{
+  display:grid;grid-template-columns:minmax(7rem,10rem) 1fr;gap:.6rem 2.5rem;
+  padding:1.7rem 0;border-top:1px solid var(--rule);
+}
+.entry:first-of-type{border-top:none;padding-top:0}
+.entry .when{font-size:.82rem;color:var(--faint);padding-top:.5rem;font-variant-numeric:oldstyle-nums}
+.entry h3{font-family:var(--serif);font-weight:600;font-size:1.45rem;line-height:1.25}
+.entry .org{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600;margin:.25rem 0 .8rem}
+.entry ul{list-style:none;color:#3d3930;max-width:44rem}
+.entry li{padding-left:1.4rem;position:relative;margin-bottom:.5rem;font-size:.95rem}
+.entry li::before{content:"¶";position:absolute;left:0;color:var(--rule);font-family:var(--serif)}
+@media(max-width:560px){.entry{grid-template-columns:1fr;gap:.2rem}}
+
+/* projects — editorial features */
+.feature{padding:2.6rem 0;border-top:1px solid var(--rule)}
+.feature:first-of-type{border-top:none;padding-top:0}
+.feature .head{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap}
+.feature .no{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:1rem;color:var(--faint);white-space:nowrap;
+}
+.feature h3{
+  font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,4vw,2.6rem);
+  line-height:1.15;letter-spacing:-.01em;transition:color .25s,font-style 0s;
+}
+.feature:hover h3{color:var(--blue);font-style:italic}
+.feature .deck{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1.02rem,1.8vw,1.2rem);color:#3d3930;max-width:46rem;
+  margin:.7rem 0 .9rem;line-height:1.55;
+}
+.feature .foot{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.feature .foot b{color:var(--ink);font-weight:600}
+.feature.lead{padding-top:0}
+.feature.lead .badge{
+  display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--paper);background:var(--blue);padding:.3rem .7rem;margin-bottom:1rem;
+}
+
+/* education */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 4rem}
+.two-col h4{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-bottom:1.1rem}
+.cred{border-top:1px solid var(--rule);padding:.85rem 0}
+.cred b{display:block;font-family:var(--serif);font-weight:500;font-size:1.08rem}
+.cred span{font-size:.82rem;color:var(--faint);font-variant-numeric:oldstyle-nums}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+
+/* skills inline register */
+.register{margin-top:2.8rem;border-top:1px solid var(--rule);padding-top:1.1rem;max-width:100%}
+.register p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:1.05rem;color:#3d3930}
+.register p b{font-style:normal;font-weight:600;color:var(--ink)}
+
+/* ---------- contact ---------- */
+.contact{border-bottom:none;text-align:center;padding-bottom:clamp(4rem,10vh,7rem)}
+.contact .label{margin-bottom:2rem;display:block}
+.contact h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.4rem,7.5vw,5.5rem);line-height:1.08;letter-spacing:-.015em;
+}
+.contact h2 em{font-style:italic;font-weight:300;color:var(--blue)}
+.contact .mail{
+  display:inline-block;margin-top:2.4rem;font-family:var(--serif);
+  font-size:clamp(1.1rem,2.4vw,1.6rem);color:var(--blue);
+  border-bottom:1.5px solid var(--blue);padding-bottom:.15rem;
+  transition:opacity .25s;
+}
+.contact .mail:hover{opacity:.6}
+.contact .links{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:2.2rem;margin-top:2.6rem;
+  font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+}
+footer{
+  border-top:1px solid var(--ink);padding:1.4rem 0 2rem;
+  font-size:.75rem;color:var(--faint);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;
+}
+
+/* ---------- motion ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="#top">Sreehari Kalesh</a>
+    <ul>
+      <li><a class="u" href="#experience">Experience</a></li>
+      <li><a class="u" href="#work">Work</a></li>
+      <li><a class="u" href="#contact">Contact</a></li>
+      <li class="alt-li"><a class="u alt" href="../">Dark edition ↗</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <section class="hero" style="border-bottom:1px solid var(--ink)">
+    <div class="dateline">
+      <span class="label">Portfolio · Second Edition</span>
+      <span class="label">Ernakulam, Kerala — India</span>
+    </div>
+    <h1 class="reveal">A software engineer who ships <em>quickly</em>, and finishes <em>properly</em>.</h1>
+    <div class="stand">
+      <p class="lede reveal">Sreehari Kalesh is a full-stack engineer with three-plus years building production web applications in React, Vue, Node and TypeScript — including an advertising platform taken from blank repository to production in three weeks, at 95% client satisfaction.</p>
+      <div class="meta reveal">
+        <div class="row"><b>Currently</b><span>Software Engineer II, AOT Technologies</span></div>
+        <div class="row"><b>Focus</b><span>Full-stack web · client delivery</span></div>
+        <div class="row"><b>Stack</b><span>React · Vue · Node · TypeScript · AWS</span></div>
+        <div class="row"><b>Write to</b><span><a class="u static" href="mailto:sreeharikalesh@gmail.com">sreeharikalesh@gmail.com</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-grid">
+      <span class="label reveal"><span class="no">№ 01</span> — Experience</span>
+      <div>
+        <article class="entry reveal">
+          <div class="when">Jan 2025 — Present</div>
+          <div>
+            <h3>Software Engineer II</h3>
+            <p class="org">AOT Technologies, Trivandrum</p>
+            <ul>
+              <li>Led end-to-end client engagement for Hootsuite: requirements, technical demos, delivery timelines.</li>
+              <li>Delivered the Reddit Ads Manager platform from concept to production in three weeks — 95% client satisfaction.</li>
+              <li>Managed multiple concurrent client relationships with on-time delivery throughout.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="entry reveal">
+          <div class="when">Jan 2024 — Jan 2025</div>
+          <div>
+            <h3>Software Engineer I</h3>
+            <p class="org">AOT Technologies, Trivandrum</p>
+            <ul>
+              <li>Spearheaded development and optimisation of web applications — a 30% performance improvement.</li>
+              <li>Mentored junior developers in JavaScript and React, accelerating delivery by 15%.</li>
+              <li>Built robust error-handling, cutting application downtime by 20%.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="entry reveal">
+          <div class="when">Sep 2022 — Jan 2024</div>
+          <div>
+            <h3>Junior Software Engineer</h3>
+            <p class="org">AOT Technologies, Trivandrum</p>
+            <ul>
+              <li>Full-stack development across Vue.js, React.js and Node.js applications.</li>
+              <li>Comprehensive code reviews, reducing bugs by 30%.</li>
+              <li>Commended for teamwork and problem-solving during feature integrations.</li>
+            </ul>
+          </div>
+        </article>
+        <div class="register reveal">
+          <p><b>In the toolkit —</b> JavaScript, TypeScript, React, Vue.js, Node.js, Express, NestJS, Firebase, AWS services, REST APIs, HTML &amp; CSS; <b>and besides —</b> agile delivery, client management, requirements gathering, mentorship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-grid">
+      <span class="label reveal"><span class="no">№ 02</span> — Selected Work</span>
+      <div>
+        <article class="feature lead reveal">
+          <span class="badge">Flagship</span>
+          <div class="head"><span class="no">No. 1</span><h3>Reddit Ads Manager</h3></div>
+          <p class="deck">A complete advertising campaign platform for Hootsuite — create, manage and monitor Reddit campaigns, with a full analytics dashboard for impressions, clicks, conversions and CTR. Blank repository to production in three weeks, by a team of two.</p>
+          <p class="foot"><b>React</b> · Analytics · Concurrent campaign architecture</p>
+        </article>
+        <article class="feature reveal">
+          <div class="head"><span class="no">No. 2</span><h3>Divii</h3></div>
+          <p class="deck">Automated divorce-agreement generation for lawyers; clients produce agreements independently, cutting onboarding time by 40%.</p>
+          <p class="foot"><b>Vue.js</b> · Firebase</p>
+        </article>
+        <article class="feature reveal">
+          <div class="head"><span class="no">No. 3</span><h3>Hootsuite Integrations</h3></div>
+          <p class="deck">Yext and Google My Business, integrated into Hootsuite — better synchronisation, better error handling, user satisfaction up 20%.</p>
+          <p class="foot"><b>React</b> · Node.js · TypeScript · AWS</p>
+        </article>
+        <article class="feature reveal">
+          <div class="head"><span class="no">No. 4</span><h3>BCNDP Election Tracker</h3></div>
+          <p class="deck">Finance tracking and report generation for the BC NDP — election finance workflows, streamlined.</p>
+          <p class="foot"><b>Vue.js</b> · NestJS</p>
+        </article>
+        <article class="feature reveal">
+          <div class="head"><span class="no">No. 5</span><h3>OneLaunch</h3></div>
+          <p class="deck">Led the rebase to the latest Chromium — security and performance up 30% — under rigorous testing protocols.</p>
+          <p class="foot"><b>Chromium</b> · Testing protocols</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-grid">
+      <span class="label reveal"><span class="no">№ 03</span> — Credentials</span>
+      <div class="two-col reveal">
+        <div>
+          <h4>Education</h4>
+          <div class="cred"><b>Bachelor of Computer Applications</b><span>Manipal University, online — 2025 to 2028 (expected)</span></div>
+          <div class="cred"><b>Diploma, Computer Engineering</b><span>Sreerama Govt Polytechnic — 2022</span></div>
+        </div>
+        <div>
+          <h4>Certifications — IBM, 2023</h4>
+          <div class="cred"><b>Back-End Apps with Node.js &amp; Express</b></div>
+          <div class="cred"><b>Web Development: HTML, CSS, JavaScript</b></div>
+          <div class="cred"><b>Python for Data Science, AI &amp; Development</b></div>
+          <div class="cred"><b>Introduction to Cloud Computing</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <span class="label reveal">№ 04 — Correspondence</span>
+    <h2 class="reveal">Have something<br>worth <em>building?</em></h2>
+    <div class="reveal">
+      <a class="mail" href="mailto:sreeharikalesh@gmail.com">sreeharikalesh@gmail.com</a>
+      <div class="links">
+        <a class="u" href="https://github.com/sreehariKalesh-aot" target="_blank" rel="noopener">GitHub</a>
+        <a class="u" href="https://www.linkedin.com/in/sreehari-kalesh-523b351b0/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="u" href="tel:+918921955113">+91 89219 55113</a>
+        <a class="u" href="../">Dark edition ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Sreehari Kalesh</span>
+    <span>Set in Fraunces &amp; Inter · One HTML file</span>
+  </footer>
+
+</main>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
